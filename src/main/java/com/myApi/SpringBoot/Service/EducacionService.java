@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EducacionService {
+public class EducacionService{
  @Autowired
  EducacionRepository repositorioEducacion;
  
@@ -20,4 +20,20 @@ public class EducacionService {
 
         return repositorioEducacion.findAll();
     }
+    public void crearEducacion(Educacion educacion) {
+        repositorioEducacion.save(educacion);
+    }
+
+    public void borrarEducacion(Long id) {
+        repositorioEducacion.deleteById(id);
+    }
+    
+   public void modificarEducacion(Educacion educacion)
+    {
+    repositorioEducacion.save(educacion);
+    }
+   public List<Educacion> buscarEducacionPorTitulo(String titulo)
+{
+return repositorioEducacion.findByTituloLike(titulo);
+}
 }
