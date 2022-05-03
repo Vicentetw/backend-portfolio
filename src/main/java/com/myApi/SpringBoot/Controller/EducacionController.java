@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,28 +43,23 @@ public class EducacionController {
         educacionService.borrarEducacion(id);
     }
 
-    @GetMapping("/persona/{id}")
+    @GetMapping("/educacion/{id}")
     @ResponseBody
-    public Persona obtenerPersona(@PathVariable Long id) {
-        return personaService.obtenerPersona(id);
+    public Educacion obtenerEducacion(@PathVariable Long id) {
+        return educacionService.obtenerEducacion(id);
     }
 
-    @PutMapping("/modifica/persona")
-    public void modificarPersona(@RequestBody Persona persona) {
-        personaService.modificarPersona(persona);
+    @PutMapping("/modifica/educacion")
+    public void modificarEducacion(@RequestBody Educacion educacion) {
+        educacionService.modificarEducacion(educacion);
     }
 
-    @GetMapping("/persona/ubicacion/{ubicacion}")
+    @GetMapping("/educacion/titulo/{titulo}")
     @ResponseBody
-    public List<Persona> buscarPorUbicacion(@PathVariable String ubicacion)
+    public List<Educacion> buscarPorTitulo(@PathVariable String titulo)
     {
-    return personaService.buscarPersonaPorUbicacion(ubicacion);
+    return educacionService.buscarEducacionPorTitulo(titulo);
     }
-    @GetMapping("/persona/todas")
-    @ResponseBody
-    public List<Persona> buscarTodas()
-    {
-    return personaService.listarPersonas();
-    }
+    
 }
 
