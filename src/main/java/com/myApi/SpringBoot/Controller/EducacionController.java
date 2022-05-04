@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
-@RequestMapping("/education")
 /*@CrossOrigin(origins = "https://portfolio-angular-81057.web.app/")*/
 @CrossOrigin(origins = "*")
 public class EducacionController {
