@@ -33,5 +33,16 @@ public class Educacion {
         this.Institucion = Institucion;
         this.idPersona = idPersona;
     }
-    
+    @Override
+    public String toString(){
+        return "Educacion{" +
+                "id=" + id +
+                ", fechaInicio='" + fechaInicio + '\'' +
+                ", fechaEgreso='" + fechaEgreso + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", fecha inicio='" + fechaInicio + '\'' +
+                ", Institucion='" + Institucion + '\'' +
+                ", url idPersona='" + idPersona + '\'' +
+                '}';
+    }
 }

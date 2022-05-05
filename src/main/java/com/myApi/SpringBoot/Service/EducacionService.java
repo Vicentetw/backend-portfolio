@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
-public class EducacionService{
+public class EducacionService implements IEducacionService{
  @Autowired
  EducacionRepository repositorioEducacion;
  
@@ -16,14 +17,17 @@ public class EducacionService{
         return repositorioEducacion.findById(id).orElse(null);
     }
 
+ @Override
     public List<Educacion> listarEducacion() {
 
         return repositorioEducacion.findAll();
     }
+ @Override
     public void crearEducacion(Educacion educacion) {
         repositorioEducacion.save(educacion);
     }
 
+ @Override
     public void borrarEducacion(Long id) {
         repositorioEducacion.deleteById(id);
     }
