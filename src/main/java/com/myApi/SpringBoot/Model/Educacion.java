@@ -14,13 +14,13 @@ import lombok.Setter;
 public class Educacion {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Basic
-    String fechaInicio;
-    String fechaEgreso;
-    String titulo;
-    String Institucion;
-    int idPersona;
+    private String fechaInicio;
+    private String fechaEgreso;
+    private String titulo;
+    private String Institucion;
+    private int idPersona;
 
     public Educacion() {
     }
