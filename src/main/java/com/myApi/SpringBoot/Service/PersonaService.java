@@ -1,3 +1,5 @@
+/*Perrotta Vicente grupo 141*/
+
 package com.myApi.SpringBoot.Service;
 
 import com.myApi.SpringBoot.Model.Persona;
@@ -15,7 +17,17 @@ PersonaRepository repositorioPersona;
     public void crearPersona(Persona persona) {
        repositorioPersona.save(persona);
     }
-
+    
+    public Persona obtenerPersona(Long id)
+    {
+        return repositorioPersona.findById(id).orElse(null);
+    }
+    
+     public void modificarPersona(Persona persona)
+    {
+    repositorioPersona.save(persona);
+    }
+     
     @Override
     public void borrarPersona(Long id) {
        repositorioPersona.deleteById(id);
@@ -27,18 +39,9 @@ PersonaRepository repositorioPersona;
         return repositorioPersona.findAll();
     }
 
-    public Persona obtenerPersona(Long id)
+    
+    public List<Persona> buscarPersonaPorNombre(String apellido)
     {
-        return repositorioPersona.findById(id).orElse(null);
+    return repositorioPersona.findByApellidoLike(apellido);
     }
-
-    public void modificarPersona(Persona persona)
-    {
-    repositorioPersona.save(persona);
-    }
-
-public List<Persona> buscarPersonaPorUbicacion(String apellido)
-{
-return repositorioPersona.findByApellidoLike(apellido);
-}
 }

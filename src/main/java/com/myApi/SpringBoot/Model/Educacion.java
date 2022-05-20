@@ -2,6 +2,7 @@
 package com.myApi.SpringBoot.Model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,35 +15,39 @@ import lombok.Setter;
 public class Educacion {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(nullable=false, updatable=false)
     private Long id;
     @Basic
-    private String fechaInicio;
-    private String fechaEgreso;
+    private String fecha_inicio;
+    private String fecha_egreso;
     private String titulo;
     private String Institucion;
-    private int idPersona;
+    private int persona_id;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String fechaInicio, String fechaEgreso, String titulo, String Institucion, int idPersona) {
-        this.id = id;
-        this.fechaInicio = fechaInicio;
-        this.fechaEgreso = fechaEgreso;
-        this.titulo = titulo;
-        this.Institucion = Institucion;
-        this.idPersona = idPersona;
-    }
-    @Override
+    
+    
+    /*@Override
     public String toString(){
         return "Educacion{" +
                 "id=" + id +
-                ", fechaInicio='" + fechaInicio + '\'' +
-                ", fechaEgreso='" + fechaEgreso + '\'' +
+                ", fechaInicio='" + fecha_inicio + '\'' +
+                ", fechaEgreso='" + fecha_egreso + '\'' +
                 ", titulo='" + titulo + '\'' +
-                ", fecha inicio='" + fechaInicio + '\'' +
                 ", Institucion='" + Institucion + '\'' +
-                ", url idPersona='" + idPersona + '\'' +
+                ", url persona='" + persona + '\'' +
                 '}';
+    }
+*/
+
+    public Educacion(Long id, String fecha_inicio, String fecha_egreso, String titulo, String Institucion, int persona_id) {
+        this.id = id;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_egreso = fecha_egreso;
+        this.titulo = titulo;
+        this.Institucion = Institucion;
+        this.persona_id = persona_id;
     }
 }

@@ -14,7 +14,11 @@ import org.springframework.stereotype.Service;
 public class SkillService implements ISkillService{
 @Autowired
 SkillRepository repositorioSkill;
-   
+ 
+public SkillService(SkillRepository repositorioSkill) {
+        this.repositorioSkill = repositorioSkill;
+}
+
 @Override
     public void crearSkill(Skill skill) {
        repositorioSkill.save(skill);

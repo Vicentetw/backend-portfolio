@@ -1,3 +1,4 @@
+/*Perrotta Vicente grupo 141*/
 package com.myApi.SpringBoot.Service;
 
 import com.myApi.SpringBoot.Model.Educacion;
@@ -9,9 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EducacionService implements IEducacionService{
- @Autowired
+
  EducacionRepository repositorioEducacion;
+ @Autowired
  
+ public EducacionService(EducacionRepository repositorioEducacion) {
+        this.repositorioEducacion = repositorioEducacion;
+    }
   public Educacion obtenerEducacion(Long id)
     {
         return repositorioEducacion.findById(id).orElse(null);
@@ -22,14 +27,18 @@ public class EducacionService implements IEducacionService{
 
         return repositorioEducacion.findAll();
     }
- @Override
-    public void crearEducacion(Educacion educacion) {
-        repositorioEducacion.save(educacion);
+ 
+    public Educacion addEducacion(Educacion educacion) {
+        return repositorioEducacion.save(educacion);
     }
+   
 
  @Override
     public void borrarEducacion(Long id) {
         repositorioEducacion.deleteById(id);
+    }
+   public Educacion updateEstudios(Educacion educacion) {
+        return repositorioEducacion.save(educacion);
     }
     
    public void modificarEducacion(Educacion educacion)
@@ -40,6 +49,11 @@ public class EducacionService implements IEducacionService{
 {
 return repositorioEducacion.findByTituloLike(titulo);
 }
+
+    @Override
+    public void crearEducacion(Educacion educacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
  
 }

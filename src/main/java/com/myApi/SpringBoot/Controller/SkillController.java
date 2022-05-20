@@ -26,19 +26,10 @@ public class SkillController {
     @Autowired
     SkillService skillService;
 
-    @GetMapping("/skill")
-    public String saludar(@RequestParam String nombre) {
-        return "Bienvenidos a Arg. Programa. Soy " + nombre;
-    }
-
+    
     @PostMapping("/skill")
     public void crearSkill(@RequestBody Skill skill) {
         skillService.crearSkill(skill);
-    }
-
-    @DeleteMapping("/skill/{id}")
-    public void borrarSkill(@PathVariable Long id) {
-        skillService.borrarSkill(id);
     }
 
     @GetMapping("/skill/{id}")
@@ -46,12 +37,6 @@ public class SkillController {
     public Skill obtenerSkill(@PathVariable Long id) {
         return skillService.obtenerSkill(id);
     }
-
-    @PutMapping("/modifica/skill")
-    public void modificarSkill(@RequestBody Skill skill) {
-        skillService.modificarSkill(skill);
-    }
-
     
     @GetMapping("/skill/todas")
     @ResponseBody
@@ -59,4 +44,16 @@ public class SkillController {
     {
     return skillService.listarSkills();
     }
+    
+    @DeleteMapping("/skill/{id}")
+    public void borrarSkill(@PathVariable Long id) {
+        skillService.borrarSkill(id);
+    }
+
+     @PutMapping("/modifica/skill")
+    public void modificarSkill(@RequestBody Skill skill) {
+        skillService.modificarSkill(skill);
+    }
+
+        
 }
