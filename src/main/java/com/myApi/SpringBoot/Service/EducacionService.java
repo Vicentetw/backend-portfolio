@@ -28,8 +28,8 @@ public class EducacionService implements IEducacionService{
         return repositorioEducacion.findAll();
     }
  
-    public Educacion addEducacion(Educacion educacion) {
-        return repositorioEducacion.save(educacion);
+    public void addEducacion(Educacion educacion) {
+        repositorioEducacion.save(educacion);
     }
    
 
@@ -52,7 +52,7 @@ return repositorioEducacion.findByTituloLike(titulo);
 
     @Override
     public void crearEducacion(Educacion educacion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         repositorioEducacion.save(educacion);
     }
 
  
