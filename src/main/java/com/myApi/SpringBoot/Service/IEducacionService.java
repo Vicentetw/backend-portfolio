@@ -8,5 +8,5 @@ public interface IEducacionService {
     
     public void crearEducacion (Educacion educacion);
     public void borrarEducacion (Long id);
-    public List <Educacion> listarEducacion();
+    public List<Educacion> listarEducacion();
 }

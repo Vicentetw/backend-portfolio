@@ -11,12 +11,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class EducacionService implements IEducacionService{
 
- EducacionRepository repositorioEducacion;
  @Autowired
+ EducacionRepository repositorioEducacion;
+ 
  
  public EducacionService(EducacionRepository repositorioEducacion) {
         this.repositorioEducacion = repositorioEducacion;
     }
+ 
+  @Override
+    public void crearEducacion(Educacion educacion) {
+         repositorioEducacion.save(educacion);
+    }
+    
   public Educacion obtenerEducacion(Long id)
     {
         return repositorioEducacion.findById(id).orElse(null);
@@ -50,10 +57,7 @@ public class EducacionService implements IEducacionService{
 return repositorioEducacion.findByTituloLike(titulo);
 }
 
-    @Override
-    public void crearEducacion(Educacion educacion) {
-         repositorioEducacion.save(educacion);
-    }
+   
 
  
 }

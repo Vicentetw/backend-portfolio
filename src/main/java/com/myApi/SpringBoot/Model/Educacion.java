@@ -2,7 +2,6 @@
 package com.myApi.SpringBoot.Model;
 
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +14,6 @@ import lombok.Setter;
 public class Educacion {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(nullable=false, updatable=false)
     private Long id;
     @Basic
     private String fecha_inicio;
@@ -27,9 +25,17 @@ public class Educacion {
     public Educacion() {
     }
 
-    
-    
-    /*@Override
+      
+
+    public Educacion(Long id, String fecha_inicio, String fecha_egreso, String titulo, String Institucion, int persona_id) {
+        this.id = id;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_egreso = fecha_egreso;
+        this.titulo = titulo;
+        this.Institucion = Institucion;
+        this.persona_id = persona_id;
+    }
+     /*@Override
     public String toString(){
         return "Educacion{" +
                 "id=" + id +
@@ -41,13 +47,4 @@ public class Educacion {
                 '}';
     }
 */
-
-    public Educacion(Long id, String fecha_inicio, String fecha_egreso, String titulo, String Institucion, int persona_id) {
-        this.id = id;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_egreso = fecha_egreso;
-        this.titulo = titulo;
-        this.Institucion = Institucion;
-        this.persona_id = persona_id;
-    }
 }

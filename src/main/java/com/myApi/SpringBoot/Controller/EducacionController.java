@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-
 /*@CrossOrigin(origins = {"https://portfolio-angular-81057.web.app/"})*/
 @CrossOrigin(origins = "*")
 public class EducacionController {
@@ -27,6 +26,10 @@ public class EducacionController {
     @Autowired
     EducacionService educacionService;
 
+    @PostMapping("/educacion")
+    public void crearEducacion(@RequestBody Educacion educacion) {
+        educacionService.crearEducacion(educacion);
+    }
     /*Método GET*/
     @GetMapping("/educacion/all")
     public ResponseEntity<List<Educacion>> getAllEstudios() {
@@ -67,12 +70,6 @@ public class EducacionController {
     public ResponseEntity<Educacion> updateEducacion(@RequestBody Educacion educacion) {
         Educacion updateEducacion = educacionService.updateEstudios(educacion);
         return new ResponseEntity<>(updateEducacion, HttpStatus.OK);
-    }
-
-    /*Método POST*/
-    @PostMapping("/educacion")
-    public void crearEducacion(@RequestBody Educacion educacion) {
-        educacionService.crearEducacion(educacion);
     }
 
     /*Método DELETE */
