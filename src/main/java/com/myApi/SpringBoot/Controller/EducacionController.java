@@ -72,7 +72,7 @@ public class EducacionController {
     /*Método POST*/
     @PostMapping("/educacion")
     public void crearEducacion(@RequestBody Educacion educacion) {
-        educacionService.addEducacion(educacion);
+        educacionService.crearEducacion(educacion);
     }
 
     /*Método DELETE */
